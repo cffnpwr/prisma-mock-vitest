@@ -1,36 +1,38 @@
 {
-  "name": "prisma-mock",
-  "version": "0.10.0",
-  "description": "Mock prisma for unit testing database",
+  "name": "prisma-mock-vitest",
+  "version": "0.10.0-vitest-0.0.1",
+  "description": "A mock library of Prisma intended for unit testing feat. vitest.",
   "main": "lib/index.js",
-  "repository": "https://github.com/demonsters/prisma-mock",
+  "repository": "https://github.com/cffnpwr/prisma-mock-vitest",
   "license": "MIT",
   "types": "lib/",
   "files": [
     "lib/"
   ],
   "devDependencies": {
-    "@prisma/client": "4.7.1",
-    "@types/jest": "^27.0.2",
+    "@prisma/client": "5.6.0",
+    "@types/node": "^20.9.1",
+    "@vitest/coverage-v8": "^0.34.6",
+    "@vitest/ui": "^0.34.6",
     "cross-spawn": "^7.0.3",
     "env-cmd": "^10.1.0",
-    "jest": "^27.3.1",
-    "prisma": "4.7.1",
-    "ts-jest": "^27.0.7",
-    "typescript": "^4.4.4",
-    "uuid": "^9.0.0"
+    "prisma": "5.6.0",
+    "typescript": "^5.2.2",
+    "uuid": "^9.0.0",
+    "vitest": "^0.34.6"
   },
   "scripts": {
     "preversion": "tsc",
     "build": "tsc",
-    "test": "jest",
+    "test": "vitest",
     "watch": "tsc --watch",
     "test:postgres": "env-cmd -e postgres jest --maxWorkers=1"
   },
   "peerDependencies": {
     "@prisma/client": "^3.5.0 || ^4.7.0 || ^5.0.0"
   },
+  "packageManager": "pnpm@8.10.5",
   "dependencies": {
-    "jest-mock-extended": "^2.0.4"
+    "vitest-mock-extended": "^1.3.1"
   }
 }

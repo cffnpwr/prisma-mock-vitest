@@ -1,10 +1,12 @@
 import { Prisma } from "@prisma/client"
-import { mockDeep } from "jest-mock-extended"
+import { mockDeep } from "vitest-mock-extended"
 import HandleDefault, { ResetDefaults } from "./defaults"
 import { shallowCompare } from "./utils/shallowCompare"
 import { deepEqual } from "./utils/deepEqual"
 import { deepCopy } from "./utils/deepCopy"
 import getNestedValue from "./utils/getNestedValue"
+
+import { version } from "@prisma/client/package.json"
 
 type UnwrapPromise<P extends any> = P extends Promise<infer R> ? R : P
 
@@ -216,7 +218,10 @@ const createPrismaMock = <P>(
         throw new Prisma.PrismaClientValidationError(
           `Argument orderBy of needs exactly one argument, but you provided ${keys.join(
             " and "
-          )}. Please choose one.`
+          )}. Please choose one.`,
+          {
+            clientVersion: version,
+          },
         )
       }
       const incl = includes({

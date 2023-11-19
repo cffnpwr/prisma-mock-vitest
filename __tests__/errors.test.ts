@@ -1,6 +1,6 @@
 // @ts-nocheck
 
-import { PrismaClientKnownRequestError } from "@prisma/client/runtime"
+import { Prisma } from "@prisma/client"
 import createPrismaClient from "./createPrismaClient"
 
 const data = {
@@ -33,7 +33,7 @@ test("findFirstOrThrow", async () => {
     where: { id: 1 },
   })
   expect(accounts).toMatchInlineSnapshot(`
-Object {
+{
   "id": 1,
   "name": "sadfsdf",
   "sort": null,
@@ -45,7 +45,7 @@ Object {
     })
     throw new Error("Test should not reach here")
   } catch (e) {
-    expect(e instanceof PrismaClientKnownRequestError).toBe(true)
+    expect(e instanceof Prisma.PrismaClientKnownRequestError).toBe(true)
     expect(e.message).toContain(
       "No Account found"
     )
@@ -68,12 +68,12 @@ test("delete", async () => {
     throw new Error("Test should not reach here")
   } catch (e) {
     expect(e.code).toBe("P2025")
-    expect(e instanceof PrismaClientKnownRequestError).toBe(true)
+    expect(e instanceof Prisma.PrismaClientKnownRequestError).toBe(true)
     expect(e.message).toContain(
       "An operation failed because it depends on one or more records that were required but not found. Record to delete does not exist."
     )
     expect(e.meta).toMatchInlineSnapshot(`
-Object {
+{
   "cause": "Record to delete does not exist.",
 }
 `)
@@ -94,12 +94,12 @@ test("update", async () => {
     throw new Error("Test should not reach here")
   } catch (e) {
     expect(e.code).toBe("P2025")
-    expect(e instanceof PrismaClientKnownRequestError).toBe(true)
+    expect(e instanceof Prisma.PrismaClientKnownRequestError).toBe(true)
     expect(e.message).toContain(
       "An operation failed because it depends on one or more records that were required but not found. Record to update not found."
     )
     expect(e.meta).toMatchInlineSnapshot(`
-Object {
+{
   "cause": "Record to update not found.",
 }
 `)
@@ -138,13 +138,13 @@ test("Argument uniqueField is not unique.", async () => {
   } catch (e) {
     expect(e.code).toBe("P2002")
     // expect(e.meta.cause).toBe("Unique constraint failed on the fields: (\`uniqueField\`)]")
-    expect(e instanceof PrismaClientKnownRequestError).toBe(true)
+    expect(e instanceof Prisma.PrismaClientKnownRequestError).toBe(true)
     expect(e.message).toContain(
       "Unique constraint failed on the fields: (`uniqueField`)"
     )
     expect(e.meta).toMatchInlineSnapshot(`
-Object {
-  "target": Array [
+{
+  "target": [
     "uniqueField",
   ],
 }

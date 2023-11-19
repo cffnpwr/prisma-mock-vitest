@@ -1,6 +1,6 @@
 // @ts-nocheck
 
-import { PrismaClientValidationError } from "@prisma/client/runtime"
+import { Prisma } from "@prisma/client"
 import createPrismaClient from "./createPrismaClient"
 
 
@@ -132,7 +132,7 @@ test("Should throw error when more then one key in orderBy field", async () => {
       sort: "asc",
     }
   }))
-  .rejects.toThrow(PrismaClientValidationError)
+  .rejects.toThrow(Prisma.PrismaClientValidationError)
   // .rejects.toThrow(new PrismaClientValidationError('Argument orderBy of needs exactly one argument, but you provided account and sort. Please choose one.'))
 
 })
@@ -210,20 +210,20 @@ test("Deep nested orderBy", async () => {
     ]
   })
   expect(users).toMatchInlineSnapshot(`
-Array [
-  Object {
+[
+  {
     "e_id": 1,
     "json": null,
     "userId": 1,
     "value": "2",
   },
-  Object {
+  {
     "e_id": 2,
     "json": null,
     "userId": 1,
     "value": "1",
   },
-  Object {
+  {
     "e_id": 3,
     "json": null,
     "userId": 2,
