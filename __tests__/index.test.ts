@@ -1,6 +1,6 @@
 // @ts-nocheck
 
-import { PrismaClient, Prisma } from "@prisma/client"
+import { Prisma } from "@prisma/client"
 import createPrismaClient from "./createPrismaClient"
 
 describe("PrismaClient", () => {

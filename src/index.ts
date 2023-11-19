@@ -1060,6 +1060,13 @@ const createPrismaMock = <P>(
           const joinfield = getJoinField(field)
           if (!joinfield) return
           const delegate = Delegate(getCamelCase(field.type), model)
+          if(!delegate.findOne({
+            where: {
+              [joinfield.relationFromFields[0]]:
+                item[joinfield.relationToFields[0]],
+            },
+          })) return
+
           if (joinfield.relationOnDelete === "SetNull") {
             delegate.update({
               where: {
