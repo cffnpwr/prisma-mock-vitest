@@ -1,5 +1,5 @@
 {
-  "name": "prisma-mock-vitest",
+  "name": "@cffnpwr/prisma-mock-vitest",
   "version": "0.10.0-vitest-0.0.1",
   "description": "A mock library of Prisma intended for unit testing feat. vitest.",
   "main": "lib/index.js",
@@ -11,7 +11,7 @@
   ],
   "devDependencies": {
     "@prisma/client": "5.6.0",
-    "@types/node": "^20.9.1",
+    "@types/node": "^20.9.2",
     "@vitest/coverage-v8": "^0.34.6",
     "@vitest/ui": "^0.34.6",
     "cross-spawn": "^7.0.3",
