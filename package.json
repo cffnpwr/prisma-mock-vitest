@@ -1,6 +1,6 @@
 {
   "name": "@cffnpwr/prisma-mock-vitest",
-  "version": "0.10.0-vitest-0.0.3",
+  "version": "0.10.0-vitest-0.0.4",
   "description": "A mock library of Prisma intended for unit testing feat. vitest.",
   "main": "lib/index.js",
   "repository": "https://github.com/cffnpwr/prisma-mock-vitest",
