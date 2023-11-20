@@ -1,9 +1,13 @@
 {
   "extends": "./tsconfig.json",
   "compilerOptions": {
-    "skipLibCheck": true
+    "skipLibCheck": true,
+    "emitDeclarationOnly": true
   },
   "include": [
     "src",
   ],
+  "exclude": [
+    "__test__"
+  ]
 }
